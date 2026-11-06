@@ -71,14 +71,14 @@
 
     <distributionManagement>
         <repository>
-            <id>sonatype-ossrh</id>
-            <name>maven-releases</name>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>github</id>
+            <name>GitHub Redhawk-Federal Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/Redhawk-Federal/camel-archetypes</url>
         </repository>
         <snapshotRepository>
-            <id>github-arch-snapshots</id>
-            <name>maven-snapshots</name>
-            <url>https://maven.pkg.github.com/ms3inc/camel-archetypes</url>
+            <id>github</id>
+            <name>GitHub Redhawk-Federal Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/Redhawk-Federal/camel-archetypes</url>
         </snapshotRepository>
     </distributionManagement>
 

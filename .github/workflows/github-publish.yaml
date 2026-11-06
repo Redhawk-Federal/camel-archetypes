@@ -23,8 +23,8 @@ jobs:
       - name: Override/recreate settings.xml
         uses: whelk-io/maven-settings-xml-action@v22
         with:
-          servers: '[{ "id": "github-arch-snapshots", "username": "${{ github.actor }}", "password": "${{ secrets.GITHUB_TOKEN }}" },{ "id": "github-plugins", "username": "${{ github.actor }}", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
-          plugin_repositories: '[{ "id": "github-plugins", "url": "https://maven.pkg.github.com/ms3inc/camel-restdsl-openapi-plugin" }]'
+          servers: '[{ "id": "github", "username": "${{ github.actor }}", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
+          plugin_repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/Redhawk-Federal/*" }]'
       - name: Publish package
         env:
           GH_USERNAME: "${{ github.actor }}"
