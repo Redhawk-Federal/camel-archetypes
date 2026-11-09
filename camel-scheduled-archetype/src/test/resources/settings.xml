@@ -19,12 +19,28 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                       https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <servers>
+        <server>
+            <id>github</id>
+            <username>${env.GH_USERNAME}</username>
+            <password>${env.GH_PAT}</password>
+        </server>
+    </servers>
     <activeProfiles>
         <activeProfile>it</activeProfile>
     </activeProfiles>
     <profiles>
         <profile>
             <id>it</id>
+            <repositories>
+                <repository>
+                    <id>github</id>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <url>https://maven.pkg.github.com/Redhawk-Federal/camel-rest-extensions</url>
+                </repository>
+            </repositories>
         </profile>
     </profiles>
 </settings>

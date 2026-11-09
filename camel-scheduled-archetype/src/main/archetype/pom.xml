@@ -21,6 +21,13 @@
         <opentelemetry-agent.version>1.25.1</opentelemetry-agent.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/Redhawk-Federal/camel-rest-extensions</url>
+        </repository>
+    </repositories>
+
     <dependencyManagement>
         <dependencies>
             <!-- Override Log4j2, related to https://github.com/spring-projects/spring-boot/issues/33450 -->
