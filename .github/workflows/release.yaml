@@ -29,6 +29,20 @@ jobs:
           servers: '[{ "id": "github", "username": "${{ github.actor }}", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
           plugin_repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/Redhawk-Federal/*" }]'
 
+      - name: Check the pom version matches the release tag
+        run: |
+          VERSION=$(./mvnw --batch-mode --quiet -N help:evaluate -Dexpression=project.version -DforceStdout)
+          TAG="${GITHUB_REF_NAME#v}"
+          echo "pom version: ${VERSION}, release tag: ${GITHUB_REF_NAME}"
+          if [[ "${VERSION}" == *-SNAPSHOT ]]; then
+            echo "::error::The pom version ${VERSION} is a SNAPSHOT. Release from a tag whose pom has a final version."
+            exit 1
+          fi
+          if [[ "${VERSION}" != "${TAG}" ]]; then
+            echo "::error::The pom version ${VERSION} does not match the release tag ${GITHUB_REF_NAME}."
+            exit 1
+          fi
+
       - name: Start OTEL collector
         run: docker run -d -p 127.0.0.1:4317:4317 --name collector otel/opentelemetry-collector:0.98.0
 

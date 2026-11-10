@@ -52,7 +52,19 @@ jobs:
         with:
           servers: '[{ "id": "github", "username": "${{ github.actor }}", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
           plugin_repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/Redhawk-Federal/*" }]'
+      - name: Check the pom version is a SNAPSHOT
+        id: version
+        run: |
+          VERSION=$(./mvnw --batch-mode --quiet -N help:evaluate -Dexpression=project.version -DforceStdout)
+          echo "pom version: ${VERSION}"
+          if [[ "${VERSION}" == *-SNAPSHOT ]]; then
+            echo "snapshot=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Final versions are published by the release workflow, skipping the snapshot deploy."
+            echo "snapshot=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Deploy snapshot to GitHub Packages
+        if: steps.version.outputs.snapshot == 'true'
         run: ./mvnw --batch-mode --no-transfer-progress -Dlicense.skip=true -DskipTests -Darchetype.test.skip=true deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
