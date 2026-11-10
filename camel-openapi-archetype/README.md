@@ -11,7 +11,7 @@ There is currently no way to update an API that has already been created with th
 
 The archetypes, the camel-restdsl-openapi-plugin and camel-rest-extensions are published to GitHub Packages under the Redhawk-Federal organization. Follow the below instructions to get set up.
 
-1. If you have previously installed the archetype, camel-rest-extensions, camel-restdsl-openapi-plugin locally, delete them from your .m2 repo inside of the com.ms3-inc.tavros folder.
+1. If you have previously installed the archetype, camel-rest-extensions, camel-restdsl-openapi-plugin locally, delete them from your .m2 repo inside of the io.tavros folder (and the old com.ms3-inc.tavros one).
 2. Create or login to an existing GitHub account.
 3. Create [a classic Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) with ONLY `read:packages` scope necessary
 4. Modify your settings.xml with the values below, and replace the username and password fields with your GitHub credentials.

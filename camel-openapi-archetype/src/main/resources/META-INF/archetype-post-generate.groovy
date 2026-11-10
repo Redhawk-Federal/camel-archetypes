@@ -56,7 +56,7 @@ if (isSample) {
 
 def generatedApiDirectory = request.outputDirectory + "/" + request.artifactId
 def camelRestDslPluginVersion = '0.2.0'
-def mvnCommand = ['mvn', 'com.ms3-inc.tavros:camel-restdsl-openapi-plugin:' + camelRestDslPluginVersion + ':generate', '-DspecificationUri=' + specUri, '-f', generatedApiDirectory]
+def mvnCommand = ['mvn', 'io.tavros:camel-restdsl-openapi-plugin:' + camelRestDslPluginVersion + ':generate', '-DspecificationUri=' + specUri, '-f', generatedApiDirectory]
 
 if (Files.exists(Path.of(specUri))) {
     log.info("Attempting to generate routes from specification...\n")
