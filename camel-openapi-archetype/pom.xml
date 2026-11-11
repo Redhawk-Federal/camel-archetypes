@@ -18,7 +18,7 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.ms3-inc.tavros</groupId>
+        <groupId>io.tavros</groupId>
         <artifactId>archetypes</artifactId>
         <version>0.2.9-SNAPSHOT</version>
     </parent>
@@ -61,17 +61,6 @@
 			<organizationUrl>https://ms3-inc.com</organizationUrl>
 		</developer>
 	</developers>
-
-	<distributionManagement>
-		<repository>
-			<id>github-arch-snapshots</id>
-			<url>https://maven.pkg.github.com/ms3inc/camel-archetypes</url>
-		</repository>
-		<snapshotRepository>
-			<id>github-arch-snapshots</id>
-			<url>https://maven.pkg.github.com/ms3inc/camel-archetypes</url>
-		</snapshotRepository>
-	</distributionManagement>
 
       <build>
         <extensions>
