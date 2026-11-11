@@ -17,7 +17,7 @@ To run the archetype, CD to the directory where the new project will live and th
 
 ```bash
 mvn archetype:generate \
--DarchetypeGroupId=com.ms3-inc.tavros \
+-DarchetypeGroupId=io.tavros \
 -DarchetypeArtifactId=camel-scheduled-archetype \
 -DarchetypeVersion=<check-for-latest>
 ```

@@ -77,7 +77,7 @@ To generate a project based on the archetype, `cd` to the directory where the ne
 
 ```bash
 mvn archetype:generate \
--DarchetypeGroupId=com.ms3-inc.tavros \
+-DarchetypeGroupId=io.tavros \
 -DarchetypeArtifactId=camel-openapi-archetype \
 -DarchetypeVersion=<check-for-latest> \
 -DgroupId=<groupId> \
