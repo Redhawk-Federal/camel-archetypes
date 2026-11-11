@@ -49,7 +49,7 @@ public class BaseRestRouteBuilder extends EndpointRouteBuilder {
             .logHandled(true)
             .logStackTrace(true)
             .process(REST_EXCEPTION_PROCESSOR)
-            .setBody(constant(DefaultDocument.NULL_INSTANCE))
+            .setBody(e -> DefaultDocument.NULL_INSTANCE)
             .transform(datasonnet("resource:classpath:rest-exception.ds",
                        String.class,
                        MediaTypes.ANY.toString(),
@@ -64,7 +64,7 @@ public class BaseRestRouteBuilder extends EndpointRouteBuilder {
             .logHandled(true)
             .logStackTrace(true)
             .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(500))
-            .setBody(constant(DefaultDocument.NULL_INSTANCE))
+            .setBody(e -> DefaultDocument.NULL_INSTANCE)
             .transform(datasonnet("resource:classpath:exception.ds",
                        String.class,
                        MediaTypes.ANY.toString(),
