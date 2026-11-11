@@ -33,14 +33,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Override Log4j2, related to https://github.com/spring-projects/spring-boot/issues/33450 -->
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-bom</artifactId>
-                <version>3.0.0-beta1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <!-- Spring Boot BOM -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
