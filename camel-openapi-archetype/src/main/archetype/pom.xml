@@ -16,15 +16,15 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <spring-boot.version>3.3.0</spring-boot.version>
-        <camel.version>4.4.3</camel.version>
+        <spring-boot.version>3.5.16</spring-boot.version>
+        <camel.version>4.18.4</camel.version>
         <opentelemetry-agent.version>1.25.1</opentelemetry-agent.version>
     </properties>
 
     <repositories>
         <repository>
-            <id>github-ms3-extensions</id>
-            <url>https://maven.pkg.github.com/ms3inc/camel-rest-extensions</url>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/Redhawk-Federal/camel-rest-extensions</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -33,14 +33,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Override Log4j2, related to https://github.com/spring-projects/spring-boot/issues/33450 -->
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-bom</artifactId>
-                <version>3.0.0-beta1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <!-- Spring Boot BOM -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -128,11 +120,11 @@
             <artifactId>camel-endpointdsl</artifactId>
         </dependency>
 
-        <!-- ms3-inc Camel Rest Extensions -->
+        <!-- Tavros Camel Rest Extensions -->
         <dependency>
-            <groupId>com.ms3-inc.tavros</groupId>
+            <groupId>io.tavros</groupId>
             <artifactId>camel-rest-extensions</artifactId>
-            <version>0.1.6</version>
+            <version>0.1.7</version>
             <exclusions>
                 <!-- https://github.com/spring-projects/spring-framework/issues/20611 -->
                 <exclusion>

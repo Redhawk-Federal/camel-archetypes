@@ -9,27 +9,17 @@ There is currently no way to update an API that has already been created with th
 
 ### How do I get set up? ###
 
-This version of the archetypes is currently being released as a snapshot on Github. The camel-restdsl-openapi-plugin and camel-rest-extensions have also been released on GitHub to support this. Follow the below instructions to get set up.
+The archetypes, the camel-restdsl-openapi-plugin and camel-rest-extensions are published to GitHub Packages under the Redhawk-Federal organization. Follow the below instructions to get set up.
 
-1. If you have previously installed the archetype, camel-rest-extensions, camel-restdsl-openapi-plugin locally, delete them from your .m2 repo inside of the com.ms3-inc.tavros folder.
+1. If you have previously installed the archetype, camel-rest-extensions, camel-restdsl-openapi-plugin locally, delete them from your .m2 repo inside of the io.tavros folder (and the old com.ms3-inc.tavros one).
 2. Create or login to an existing GitHub account.
 3. Create [a classic Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) with ONLY `read:packages` scope necessary
 4. Modify your settings.xml with the values below, and replace the username and password fields with your GitHub credentials.
 ```
   <servers>
     <server>
-      <!-- ID matching repo in generated API from archetype -->
-      <id>github-ms3-extensions</id>
-        <username>your github username</username>
-        <password>your PAT created above</password>
-    </server>
-    <server>
-      <id>archetype</id>
-        <username>your github username</username>
-        <password>your PAT created above</password>
-    </server>
-    <server>
-      <id>github-plugins</id>
+      <!-- ID matching the repository in the generated API from the archetype -->
+      <id>github</id>
         <username>your github username</username>
         <password>your PAT created above</password>
     </server>
@@ -40,28 +30,28 @@ This version of the archetypes is currently being released as a snapshot on Gith
       <id>github</id>
       <repositories>
         <repository>
-          <id>archetype</id>
-          <url>https://maven.pkg.github.com/ms3inc/camel-archetypes</url>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/Redhawk-Federal/*</url>
           <releases>
             <enabled>true</enabled>
           </releases>
           <snapshots>
-              <enabled>true</enabled>
+            <enabled>true</enabled>
           </snapshots>
-      </repository>
-    </repositories>
-    <pluginRepositories>
-      <pluginRepository>
-        <id>github-plugins</id>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-        <releases>
-          <enabled>true</enabled>
-        </releases>
-        <url>https://maven.pkg.github.com/ms3inc/camel-restdsl-openapi-plugin</url>
-      </pluginRepository>
-    </pluginRepositories>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/Redhawk-Federal/*</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
   </profiles>
   <activeProfiles>
@@ -74,20 +64,20 @@ Once those steps are complete, you can move on to the next step of running the a
 ## Development
 
 - Clone the main branch of this repo.
-- If changes are made to the [OpenAPI plugin](https://github.com/MS3Inc/camel-restdsl-openapi-plugin), the version should be changed in `archetype-post-generate.groovy` by changing the `camelRestDslPluginVersion` variable.
+- If changes are made to the [OpenAPI plugin](https://github.com/Redhawk-Federal/camel-restdsl-openapi-plugin), the version should be changed in `archetype-post-generate.groovy` by changing the `camelRestDslPluginVersion` variable.
 - To build the archetype, `cd` into the archetype source and run `mvn clean install`.
 
 ### How do I use the archetype? ###
 
 It's not necessary to install the archetype unless you are making changes to it.
 
-To view latest snapshot releases view [GitHub releases](https://github.com/MS3Inc/camel-archetypes/releases)
+To view the latest releases see [GitHub releases](https://github.com/Redhawk-Federal/camel-archetypes/releases)
 
 To generate a project based on the archetype, `cd` to the directory where the new project will live and then run:
 
 ```bash
 mvn archetype:generate \
--DarchetypeGroupId=com.ms3-inc.tavros \
+-DarchetypeGroupId=io.tavros \
 -DarchetypeArtifactId=camel-openapi-archetype \
 -DarchetypeVersion=<check-for-latest> \
 -DgroupId=<groupId> \

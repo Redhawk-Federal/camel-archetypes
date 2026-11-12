@@ -5,7 +5,9 @@ It is part of MS3's integration platform, [Tavros](https://github.com/MS3Inc/tav
 
 ### How do I get set up? ###
 
-Clone the main branch of this repo. 
+The generated project depends on camel-rest-extensions, which is published to GitHub Packages under Redhawk-Federal. Configure your `settings.xml` as described in the [OpenAPI archetype README](../camel-openapi-archetype/README.md#how-do-i-get-set-up).
+
+To develop the archetype, clone the main branch of this repo.
 
 To build the archetype, CD into the archetype source and run "mvn clean install"
 
@@ -15,7 +17,7 @@ To run the archetype, CD to the directory where the new project will live and th
 
 ```bash
 mvn archetype:generate \
--DarchetypeGroupId=com.ms3-inc.tavros \
+-DarchetypeGroupId=io.tavros \
 -DarchetypeArtifactId=camel-scheduled-archetype \
 -DarchetypeVersion=<check-for-latest>
 ```
