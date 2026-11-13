@@ -20,7 +20,7 @@
 
     <groupId>io.tavros</groupId>
     <artifactId>archetypes</artifactId>
-    <version>0.2.9-SNAPSHOT</version>
+    <version>0.2.9</version>
     <packaging>pom</packaging>
     <inceptionYear>2020</inceptionYear>
 
